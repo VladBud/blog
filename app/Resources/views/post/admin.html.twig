@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <style>
+        table {
+            border-collapse: collapse;
+            background: #dc0;
+            border: 2px solid #000;
+        }
+        td, th {
+            padding: 5px;
+            border: 1px solid #000;
+        }
+    </style>
+    <div align="center">
+    <h1>Адмін панель</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Заголовок</th>
+            <th>Опис</th>
+            <th>Текст</th>
+            <th>Створення</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <td><a href="{{ path('post_show', { 'id': post.id }) }}">{{ post.title }}</a></td>
+                <td>{{ post.description }}</td>
+                <td>{{ post.text }}</td>
+                <td>{% if post.createdAt %}{{ post.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('post_edit', { 'id': post.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<br>
+    <a href="{{ path('post_new') }}">Додати новий запис</a>
+    </div>
+{% endblock %}

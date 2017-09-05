@@ -1,0 +1,3 @@
+blog_post:
+    resource: "@BlogBundle/Resources/config/routing/post.yml"
+    prefix:   /

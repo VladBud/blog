@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Стаття</h1>
+    <style>
+        th{
+            float: left;
+        }
+    </style>
+    <table>
+        <tbody>
+            <tr>
+                <th>Заголовок</th>
+                <td>{{ post.title }}</td>
+            </tr>
+            <tr>
+                <th>Опис</th>
+                <td>{{ post.description }}</td>
+            </tr>
+            <tr>
+                <th>Текст</th>
+                <td>{{ post.text }}</td>
+            </tr>
+            <tr>
+                <th>Створення</th>
+                <td>{% if post.createdAt %}{{ post.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <a href="{{ path('post_index') }}">Повернутися додому</a>
+
+{% endblock %}

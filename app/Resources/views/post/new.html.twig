@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Створення запису</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}<br>
+        <input type="submit" value="Створити" />
+    {{ form_end(form) }}
+    <br>
+    <a href="{{ path('post_index') }}">Back to the list</a>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+admin:
+    path:     /admin
+    defaults: { _controller: BlogBundle:Admin:admin }
